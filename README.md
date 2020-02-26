@@ -2,7 +2,13 @@
 
 ## Quick Start
 
-1. Confirm the output of the following command is at least 3.7
+1. Clone the repository
+
+    ```
+    git clone https://github.com/bpmil3/GoPro2ImageSequence.git
+    ```
+
+<!-- 1. Confirm the output of the following command is at least 3.7
 
     ```
     python3 --version
@@ -25,16 +31,16 @@
     ```
     source env/bin/activate
     ```
-
-5. Install the required packages
+-->
+2. Install the required packages
 
     ```
     pip3 install -r requirements.txt
     ```
 
-6. Put the matching csv and video file in the same folder
+3. Put the matching csv and video file in the same folder
 
-7. Run the program with
+4. Run the program with
 
     ```
     python3 video2photo.py

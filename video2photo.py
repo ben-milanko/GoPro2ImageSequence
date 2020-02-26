@@ -8,18 +8,23 @@ import sys
 #import subprocess
 #import json
 
-intro = """
+imageDistance = 0.01
+
+intro = f"""
 video2photo.py
 
-version:    1.0
+version:    1.1
 author:     Benjamin Milanko
-updated:    2020/02/17
+updated:    2020/02/26
 
 description:
-    Takes a video file and a 
+    Takes a video file and CSV export of GPS coordinates and exports an image every {imageDistance} km
 """
 
-imageDistance = 0.01
+if not (sys.version_info.major == 3 and sys.version_info.minor >= 5):
+    print("This script requires Python 3.5 or higher!")
+    print("You are using Python {}.{}.".format(sys.version_info.major, sys.version_info.minor))
+    sys.exit(1)
 
 print(intro)
 
