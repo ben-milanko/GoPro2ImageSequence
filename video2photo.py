@@ -4,8 +4,9 @@ import os
 from os import listdir
 from os.path import isfile, join
 from progress.bar import Bar
-import subprocess
-import json
+import sys
+#import subprocess
+#import json
 
 intro = """
 video2photo.py
@@ -15,7 +16,7 @@ author:     Benjamin Milanko
 updated:    2020/02/17
 
 description:
-
+    Takes a video file and a 
 """
 
 imageDistance = 0.01
@@ -75,19 +76,11 @@ for each in files:
         elif split[1] == "csv":
             gps = each
 
-subprocess.call(["ffmpeg", "-y", "-i", vid, "-codec", "copy", "-map", "0:3:handler_name:' GoPro MET'", "-f", "rawvideo", metaBinary],stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-print(f"Successfully extracted metadata from {vid}\n")
-
-subprocess.call(f"go run ~/go/src/github.com/stilldavid/gopro-utils/bin/gopro2json/gopro2json.go -i {metaBinary} -o {metaJson}", shell=True)
-
-print(f"Converted binary metadata to JSON")
-
-with open(metaJson) as f:
-  data = json.load(f)
-
-print(data['data'][0])
-#print(f"Loaded video {vid} and GPS file {gps}")
+try:
+    print(f"Loaded video {vid} and GPS file {gps}")
+except NameError:
+    print("Video or CSV file not found")
+    sys.exit()
 
 f = open(gps, "r", encoding="utf16")
 
