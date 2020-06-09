@@ -187,7 +187,7 @@ subprocess.call(["ffmpeg", "-y", "-i", vid, "-codec", "copy", "-map", "0:3:handl
 
 print(f"Successfully extracted metadata from {vid}\n")
 
-subprocess.call(f"go run ~/go/src/github.com/stilldavid/gopro-utils/bin/gopro2json/gopro2json.go -i {metaBinary} -o {metaJson}", shell=True)
+subprocess.call(f"go run ~/go/src/github.com/bpmil3/gopro-utils/bin/gopro2json/gopro2json.go -i {metaBinary} -o {metaJson}", shell=True)
 
 print(f"Converted binary metadata to JSON")
 
